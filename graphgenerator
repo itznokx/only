@@ -1,0 +1,40 @@
+import java.util.*;
+class Graph{
+	public static void main(String[] args) {
+		Fatorial f = new Fatorial();
+		System.out.println(f.fat(5));
+	}
+}
+class GraphGenerator{
+	Random rng = new Random();
+	Fatorial f = new Fatorial();
+	// Max vertices do grafo
+	int maxN = 25;
+	// Min vertices do grafo
+	int minN = 5;
+	// Numero de vertices do grafo
+	int n;
+	// Maximo de combinações possível entre vertices do grafo
+	int An;
+	// Combinações randomizadas (rand An)
+	int rAn;
+	GraphGenerator(){
+		// Randomizar o numero de vertices do grafo
+		this.n = (int)Math.floor(Math.random() *(maxN - minN + 1) + minN);
+		this.An = (f.fat(n))/(f.fat(n-2));
+		this.rAn = (int)Math.floor(Math.random() *(An - 0 + 1) + 0);
+
+	};
+}
+class Fatorial{
+	public int fat(int x){
+		if ((x==0) || (x==1)){
+			return 1;
+		}
+		else {
+
+			int fatX = x*(fat(x-1));
+			return fatX;
+		}
+	}
+}
